@@ -1,0 +1,16 @@
+<h1>Users info</h1>
+
+<%= form_with model:@user do |f| %>
+
+  <label for="inputName">Name</label>
+  <%= f.text_field :name %>
+
+  <label for="inputImage">Image</label>
+  <%= f.file_field :profile_image, placeholder: "Image", accept: "image/*" %>
+
+
+  <h4>Introduction</h4>
+  <%= f.text_area :introduction %>
+  <%= f.submit "Update User", class:"btn btn-primary link" %>
+
+<% end %>
