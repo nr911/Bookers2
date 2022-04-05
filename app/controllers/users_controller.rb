@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :correct_user, only: [:edit, :update, :create, :destroy]
   def new
     @user = User.new
   end
@@ -16,6 +15,7 @@ class UsersController < ApplicationController
     @users = User.all
     @user = current_user
     @newbook = Book.new
+    @book = Book.new
   end
 
   def show
