@@ -1,5 +1,14 @@
 <h1>User info</h1>
 
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= image_tag user.get_profile_image(63,63) %>
 
 <table class="table">
