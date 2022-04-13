@@ -6,7 +6,7 @@
       <%= render 'new', book: @newbook %>
     </div>
     <div class="col-md-8 offset-md-1">
-      <h2>Books details</h2>
+      <h2>Book detail</h2>
       <table class="table table-hover table-inverse">
         <thead>
           <tr>
@@ -18,8 +18,12 @@
         </thead>
         <tbody>
           <tr>
-            <td><%= image_tag @user.get_profile_image(40,40) %></td>
-            <td><%= link_to @user.name, user_path(@book.user.id) %></td>
+            <td>
+              <%= link_to user_path(@book.user_id) do %>
+                <%= image_tag @user.get_profile_image(40,40) %><br/>
+                <%= @user.name %>
+              <% end %>
+            </td>
             <td><%= link_to @book.title, book_path(@book.id) %></td>
             <td><%= @book.body %></td>
             <% if @book.user == current_user %>

@@ -1,9 +1,9 @@
-<h1>New Book</h1>
+<h2>New book</h>
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>errors prohibited this obj from being saved:
+<% if book.errors.any? %>
+  <%= book.errors.count %>errors prohibited this obj from being saved:
   <ul>
-    <% @book.errors.full_messages.each do |message| %>
+    <% book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
@@ -17,7 +17,7 @@
     <h4>Opinion</h4>
     <%= f.text_area :body %>
 
-    <%= f.submit 'Create Book' %>
+    <%= f.submit 'Create Book', class: "btn btn-success" %>
 
   <% end %>
 

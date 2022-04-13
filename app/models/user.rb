@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one_attached :user_image
+  has_one_attached :profile_image
 
 
   validates :name, uniqueness: true, length: {in: 2..20}
@@ -13,11 +13,11 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
 
   def get_profile_image(width, height)
-    unless user_image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpeg')
-      user_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    unless profile_image.attached?
+      file_path = Rails.root.join('app/assets/images/no-image2.jpeg')
+      profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    user_image.variant(resize_to_limit: [width, height]).processed
+    profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
 end
